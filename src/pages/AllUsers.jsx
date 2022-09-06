@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import UserContext from '../context/UserContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import User from './User'
+import User from '../components/User'
 
 function AllUsers() {
   const { allUsers, addUser } = useContext(UserContext)
@@ -14,7 +14,12 @@ function AllUsers() {
       <div className='container'>
         <header>
           <h1>Random API</h1>
-          <Link to='/about'>
+          <Link
+            to='/about'
+            target='_blank'
+            rel='noopener noreferrer'
+            onClick={window.close}
+          >
             <AboutIcon className='' />
           </Link>
         </header>
