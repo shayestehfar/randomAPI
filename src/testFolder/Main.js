@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { createContext, useState } from 'react'
 import A from './A'
 import B from './B'
+
+export const SampleContext = createContext()
 function Main() {
-  const middle = () => {
-    console.log('I am from B')
-  }
+  const [functionToBeCalled, setFunctionToBeCalled] = useState()
+
   return (
-    <div>
-      <A />
-      <B handleClick={middle} />
-    </div>
+    <SampleContext.Provider
+      value={{ functionToBeCalled, setFunctionToBeCalled }}
+    >
+      <div>
+        <A />
+        <B />
+      </div>
+    </SampleContext.Provider>
   )
   // run handlesave function on click event of Component B
 }
