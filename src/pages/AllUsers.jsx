@@ -9,6 +9,10 @@ import User from '../components/User'
 
 function AllUsers() {
   const { allUsers, addUser } = useContext(UserContext)
+  window.history.pushState(null, null, window.location.href)
+  window.onpopstate = function () {
+    window.history.go(1)
+  }
   return (
     <>
       <div className='container'>
@@ -18,7 +22,7 @@ function AllUsers() {
             to='/about'
             target='_blank'
             rel='noopener noreferrer'
-            onClick={window.close}
+            onClick={() => setTimeout(() => window.close(), 5000)}
           >
             <AboutIcon className='' />
           </Link>

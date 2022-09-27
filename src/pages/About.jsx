@@ -16,6 +16,12 @@ const About = () => {
             // rel='noopener noreferrer'
             // onClick={window.close}
             // prevent back button
+            onclick={() => {
+              window.history.pushState(null, null, window.location.href)
+              window.onpopstate = function () {
+                window.history.go(1)
+              }
+            }}
           >
             <FaHome className='homeFont' />
           </Link>
